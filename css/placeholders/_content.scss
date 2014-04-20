@@ -1,0 +1,132 @@
+// obsahove bloky editovatelne v CMS
+// ====================================
+
+%content{
+    @include cf;
+
+    h1{
+        font-size: 22px;
+        margin: 15px 0;
+    }
+
+    h2, h3, h4, h5{
+        margin: 15px 0;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    h3{
+        font-size: 18px;
+    }
+
+    h4{
+        font-size: 16px;
+    }
+
+    h5{
+        font-size: 14px;
+    }
+
+    ul, ol{
+        margin: 15px 0;
+    }
+
+    p, li{
+        line-height: 1.7em;
+    }
+
+    li{
+        padding-left: 25px;
+        margin-bottom: 5px;
+    }
+
+    p{
+        margin-bottom: 10px;
+    }
+
+    a{
+        text-decoration: underline;
+
+        &:hover{
+            text-decoration: none;
+        }
+    }
+
+    strong{
+    }
+
+    em{
+    }
+
+    hr{
+        height: 1px;
+        margin: 30px 0;
+        border: 0;
+        background-repeat: no-repeat;
+        background-position: center 0;
+        border-bottom: 1px solid silver;
+        // background-image: image-url("hr.png") no-repeat center 0;
+    }
+
+    img{
+        border: 1px solid silver;
+        background-color: white;
+        padding: 5px;
+        font-size: 0px;
+
+        &.is-left{
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+        &.is-right{
+            float: right;
+            margin: 0 0 10px 10px;
+        }
+    }
+
+    // https://raw.github.com/yui/pure/master/src/tables/css/tables.css
+    table{
+        /* Remove spacing between table cells (from Normalize.css) */
+        border-collapse: collapse;
+        border-spacing: 0;
+        empty-cells: show;
+        border: 1px solid #cbcbcb;
+        margin-bottom: 20px;
+
+        caption {
+            color: #000;
+            font: italic 85%/1 $font-arial;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        td, th {
+            border-left: 1px solid #cbcbcb;/*  inner column border */
+            border-width: 0 0 0 1px;
+            font-size: inherit;
+            margin: 0;
+            overflow: visible; /*to make ths where the title is really long work*/
+            padding: 6px 12px; /* cell padding */
+        }
+
+        td:first-child,
+        th:first-child {
+            border-left-width: 0;
+        }
+
+        thead {
+            background: #e0e0e0;
+            color: #000;
+            text-align: left;
+            vertical-align: bottom;
+        }
+
+        /* nth-child selector for modern browsers */
+        tr:nth-child(2n-1) td {
+            background-color: #f2f2f2;
+        }
+    }
+
+}

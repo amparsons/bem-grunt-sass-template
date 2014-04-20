@@ -1,0 +1,7 @@
+// obsahove prvky
+// ====================================
+
+.content{
+    @extend %content;
+    padding: 20px;
+}

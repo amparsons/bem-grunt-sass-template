@@ -1,0 +1,20 @@
+// zakladni rozlozeni
+// ====================================
+
+body{
+    background: silver;
+}
+
+html, body,
+button, input, select, textarea{
+    font-family: $font-arial;
+    font-size: $base-font-size;
+    color: #222;
+}
+
+.envelope{
+    width: $site-width;
+    margin: 0 auto;
+    text-align: left;
+    background: white;
+}

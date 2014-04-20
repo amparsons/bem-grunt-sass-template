@@ -1,0 +1,22 @@
+// konfiguracni promenne
+// ====================================
+
+$footer-menu-height: 20px;
+
+// paticka
+// ====================================
+
+.footer{
+    position: relative;
+    @include cf;
+}
+
+.footer__logo{
+}
+
+// menu v paticce
+// ====================================
+
+.footer__menu{
+    @include menu(20px);
+}

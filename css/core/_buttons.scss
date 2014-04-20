@@ -1,0 +1,76 @@
+// tlacitka
+// ====================================
+
+.btn{
+    display: inline-block;
+    width: auto;
+    padding: $button-padding;
+    margin-right: 10px;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    @include border-radius( $button-border-radius );
+    border: 1px solid gray;
+    background: silver;
+    color: black;
+    text-decoration: none !important;
+
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    // bootstrap ikonka
+    i{
+        margin-right: 5px;
+    }
+
+    // inline ikonka
+    &:before{
+        display: none;
+        content: "";
+        background-color: transparent;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+    }
+
+    &.is-active,
+    &:hover{
+
+    }
+
+    &[disabled],
+    &.is-disabled{
+        border: none;
+        background-image: none;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+        cursor: not-allowed;
+        box-shadow: none;
+
+        filter: alpha(opacity=40);
+        -khtml-opacity: 0.40;
+          -moz-opacity: 0.40;
+               opacity: 0.40;
+    }
+}
+
+.btn-has_icon{
+    @extend .btn;
+    &:before{
+        display: inline-block;
+    }
+}
+
+// zakladni tlacitka
+input[type='submit'],
+button{
+    @extend .btn;
+}
+
+// blokove zarovnani
+.btn_block{
+    @extend .btn;
+    display: block;
+}

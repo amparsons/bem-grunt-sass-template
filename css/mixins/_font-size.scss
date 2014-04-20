@@ -1,0 +1,90 @@
+// Inspired by this post from CSS-Tricks.
+// http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+//
+// Plays nice with compass/typography/vertical_rhythm
+// http://compass-style.org/reference/compass/typography/vertical_rhythm/
+//
+// Calculates font size in `rem` (root em).
+//
+// Relative values depends on $base-font-size. Pixle value for font-size depends
+// on $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8
+// being true.
+//
+// Includes function `rel` to calculate from `px` to `em`. Second argument used
+// as a base for conversion. Defaults to $base-font-size.
+//
+// Why not just calculate everything in rem? Because it's lazy and it will litter
+// your styles with pixel values when IE compatibility is needed.
+//
+// Note: You can use any absolute unit (cm, mm, in, pt and pc) instead of px but
+// they are not very practicle.
+//
+// SCSS:
+//
+// $base-font-size:             12px;
+// $base-line-height:           18px;
+//
+// .foo {
+//   @include font-size(24px);
+//   padding: rel(1px 2px 3px 4px, 24px);
+// }
+//
+// CSS:
+//
+// .foo {
+//   font-size: 24px;
+//   font-size: 2rem;
+//   line-height: 1.5em;
+//   padding: 0.04167em 0.08333em 0.125em 0.16667em;
+// }
+//
+
+@import "compass/typography/vertical_rhythm";
+
+// Sets the font-size and line-height in rem (root em).
+@mixin font-size($font-size) {
+  @if unit($font-size) == '' or relative-unit($font-size) {
+    @warn "$font-size = #{$font-size} - Requires a numeric value with an absolute unit of measurement.";
+  }
+
+  $line-height: $font-size * strip-unit(rhythm(lines-for-font-size($font-size), $font-size));
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+    font-size: $font-size;
+  }
+  font-size: to-relative($font-size, $base-font-size, 'rem');
+  line-height: to-relative($line-height, $font-size, 'em');
+}
+
+// Convert absolute values to a relative em values.
+@function rel($numbers, $relative-to: $base-font-size) {
+  $results: ();
+  @each $number in $numbers {
+    $results: append($results, to-relative($number, $relative-to, 'em'));
+  }
+  @return $results;
+}
+
+// Converts an absolute value to a relative one.
+@function to-relative($number, $relative-to, $output-unit) {
+  @each $arg in (('$number' $number) ('$relative-to' $relative-to)) {
+    @if type_of(nth($arg, 2)) != number or relative-unit(nth($arg, 2)) {
+      @warn "#{nth($arg, 1)} = #{nth($arg, 2)} - Only absolute numeric values are accepted.";
+    }
+  }
+  @if $output-unit != "em" and $output-unit != "rem" and $output-unit != "%" {
+    @warn "$output-unit = #{$output-unit} - Only 'em', 'rem' or '%' are accepted.";
+  }
+
+  $result: strip-unit($number / $relative-to);
+  @if $output-unit == "%" {
+    $result: $result * 100;
+  }
+  @return unquote($result + if($result != 0, $output-unit, ''));
+}
+
+// Returns numeric values without a unit of measure.
+// @see https://github.com/nex3/sass/issues/533#issuecomment-11675408
+@function strip-unit($number) {
+  @return $number / ($number * 0 + 1);
+}

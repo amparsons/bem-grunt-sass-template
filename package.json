@@ -1,0 +1,15 @@
+{
+  "name": "DRY-Framework",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "bem": "0.8.0",
+    "bower": "~1.2.8",
+    "bower-npm-install": "~0.5.4",
+    "bem-tools-autoprefixer": "0.0.3",
+    "grunt-bem-revised": "0.0.5"
+  }
+}

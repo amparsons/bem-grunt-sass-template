@@ -1,0 +1,12 @@
+// drobeckova navigace
+// ====================================
+
+.bread{
+    padding: 10px;
+    @include menu(20px);
+
+    .current_item{
+        font-weight: normal;
+        color: #3f3f3f;
+    }
+}

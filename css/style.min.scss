@@ -1,0 +1,40 @@
+// pouzite frameworky
+// ====================================
+@import "compass";                  // compass framework
+
+// pomocne mixiny
+// ====================================
+
+@import "mixins/clearfix";
+@import "mixins/respond-to";
+@import "mixins/font-size";
+@import "mixins/font-face";
+@import "mixins/icon";
+@import "mixins/menu";
+
+// zakladni nastaveni projektu
+// ====================================
+
+@import "core/variables";           // konfiguracni promenne
+@import "core/responsive";          // responsivni stavy
+@import "core/elements";            // zakladni html elementy
+@import "core/buttons";             // tlacitka
+
+// placeholdery
+// ====================================
+
+@import "placeholders/font-awesome";// zakladni font-face ikonky
+@import "placeholders/content";     // obsahove bloky editovatelne v CMS
+
+// moduly
+// ====================================
+
+@import "modules/layout";           // zakladni rozlozeni
+@import "modules/header";           // hlavicka
+@import "modules/footer";           // paticka
+@import "modules/bread";            // drobeckova navigace
+@import "modules/content";          // obsahove prvky
+@import "modules/gallery";          // fotogalerie
+@import "modules/aside";            // aside - navigace
+@import "modules/aside-menu";       // aside - menu
+@import "modules/pager";            // strankovnik

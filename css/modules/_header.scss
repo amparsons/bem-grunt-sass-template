@@ -1,0 +1,30 @@
+// konfiguracni promenne
+// ====================================
+
+$header-height: 80px;
+$header-menu-height: 20px;
+
+// hlavicka
+// ====================================
+
+.header{
+    position: relative;
+    height: $header-height;
+    background: #dddddd;
+}
+
+.header__logo{
+    position: absolute;
+}
+
+// menu v hlavicce
+// ====================================
+
+.header_menu{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    @include menu(20px);
+    background: silver;
+}

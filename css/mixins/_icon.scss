@@ -1,0 +1,40 @@
+// To simulate associative arrays
+// Source: http://hugogiraudel.com/2013/08/12/sass-functions/#mapping
+@function match($haystack, $needle) {
+    @each $item in $haystack {
+        $index: index($item, $needle);
+        @if $index {
+            $return: if($index == 1, 2, $index);
+            @return nth($item, $return);
+        }
+    }
+    @return false;
+}
+
+// For adding icons to elements using CSS pseudo-elements
+// Source: http://jaydenseric.dev/blog/fun-with-sass-and-font-icons
+@mixin icon($position: 'before', $styles: true, $icon: false, $font-family:  'Icons') {
+    // Either a :before or :after pseudo-element, defaulting to :before
+    &:#{$position} {
+        @if $icon {
+            // Icon has been specified
+            content: match($icons, $icon);
+        }
+        @if $styles {
+            // Suportive icon styles have been specified
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-family: $font-family;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+        }
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}

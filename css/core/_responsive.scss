@@ -1,0 +1,29 @@
+// responsivni stavy
+// ====================================
+
+$debug-mode: false !default;
+
+// zakladni ladici informace
+// ====================================
+
+body{
+  @if $debug-mode == true {
+      @include debugmessage("huge desktop mode");
+
+      @include respond-to(large-mode){
+          @include debugmessage("large mode");
+      }
+
+      @include respond-to(medium-mode){
+          @include debugmessage("medium mode");
+      }
+
+      @include respond-to(small-mode){
+          @include debugmessage("small mode");
+      }
+
+      @include respond-to(retina-mode){
+          @include debugmessage2("retina mode");
+      }
+  }
+}

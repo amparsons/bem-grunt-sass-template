@@ -1,0 +1,6 @@
+// aside - menu
+// ====================================
+
+.aside_menu{
+    @include menu(20px, 'block');
+}

@@ -1,0 +1,31 @@
+@mixin menu( $menu-height: 20px, $type: 'inline' ){
+    @include cf;
+
+    li, a, strong{
+        display: block;
+        min-height: $menu-height;
+        @if( $type == 'inline' ){
+            float: left;
+        }
+    }
+
+    li{
+        @if( $type == 'inline' ){
+            margin-right: 10px;
+        }
+    }
+
+    a, strong{
+        line-height: $menu-height;
+    }
+
+    &:first-child{
+        margin-top: 0;
+        border-top: 0;
+    }
+
+    &:last-child{
+        margin-bottom: 0;
+        border-bottom: 0;
+    }
+}

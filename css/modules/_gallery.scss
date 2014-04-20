@@ -1,0 +1,75 @@
+// fotogalerie
+// ====================================
+
+.gallery{
+    @include cf;
+    width: 900px;
+    position: relative;
+    padding-left: 130px;
+    padding-right: 120px;
+    margin: 0 auto;
+}
+
+// fotky ve fotogalerii
+// ====================================
+
+.gallery__item,
+.gallery__link{
+    display: block;
+    float: left;
+    width: 120px;
+    height: 120px;
+}
+
+.gallery__item{
+    margin-right: 10px;
+}
+
+.gallery__link{
+    position: relative;
+    background: silver;
+    padding: 10px;
+}
+
+.gallery__link__icon{
+    display: block;
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    margin-left: -16px;
+    margin-top: -16px;
+
+    font-size: 32px;
+    text-decoration: none;
+    color: white;
+    opacity: .5;
+}
+
+// navigace pro fotogalerii
+// ====================================
+
+.gallery__nav,
+.gallery__nav__link{
+    display: block;
+    width: 120px;
+    height: 120px;
+}
+
+.gallery__nav{
+    position: absolute;
+    top: 0;
+
+    .gallery__link__icon{
+        color: silver;
+        opacity: 1;
+    }
+}
+
+.gallery__nav_prev{
+    left: 0;
+}
+
+.gallery__nav_next{
+    right: 0;
+}
